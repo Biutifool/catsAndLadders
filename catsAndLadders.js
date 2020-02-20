@@ -14390,7 +14390,7 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 			var speech = qcont.getChildByName("speechbubble"); // שומר את בועת הדיבור על הבמה
 			console.log(speech);
 			var qtext = createText("black", "18px Rubik", "qtext", myGame[qNum][0][0], speech);
-			console.log("text height is "+qtext.lineWidth);
+			console.log("text height is " + qtext.lineWidth);
 			qtext.lineWidth = 500; // גלישת שורה
 			qtext.textAlign = "right"; // מרכוז אופקי של הטקסט בתוך התיבה
 			qtext.textBaseline = "hanging"; // מרכוז אנכי של הטקסט בתוך התיבה
@@ -14457,6 +14457,7 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 				// הצמדת מאזיני פונקציות גרירה למסיחים
 				myBox.addEventListener("pressmove", dragFunc);
 				myBox.addEventListener("pressup", releaseDrag);
+				myBox.addEventListener("click", clickFunc);
 		
 				tempAnswersArr.splice(rnd, 1); //לאחר שהמסיח נוצר על הבמה במיקום אקראי נמחק את התא שלו מהמערך הזמני
 			}
@@ -14469,19 +14470,8 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 			evt.currentTarget.x = p.x;
 			evt.currentTarget.y = p.y;
 		
-			// שליפת מספר המסיח שגוררים
-			var currNum = evt.currentTarget.name.charAt(4);
-		
 			// גבול המסיח נהיה מודגש כדי להבחין אותו מהאחרים
 			evt.currentTarget.gotoAndStop(1);
-		
-			//אם המסיח היה על איזור גרירה
-			if (detailsArr[currNum][3] != -1) {
-				dragareaArr[detailsArr[currNum][3]] = 0; // נסמן את איזור הגרירה כפנוי
-				placedAnswers--; // המונה יורד
-				permacont.getChildByName("checkBtn").visible = false; // הסרת כפתור בדיקה
-				detailsArr[currNum][3] = -1; // נסמן שהמסיח כבר לא על איזור גרירה
-			}
 		
 			for (i = 0; i < myGame[qNum].length - 1; i++) {
 				// שמירת איזור גרירה נוכחי
@@ -14493,6 +14483,18 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 				} else {
 					target.gotoAndStop(0);
 				}
+			}
+		}
+		
+		// פונקציה שמתרחשת בלחיצה על מסיח (ולא בגרירה)
+		function clickFunc(evt) {
+			// שליפת מספר המסיח שגוררים
+			var currNum = evt.currentTarget.name.charAt(4)
+			if (detailsArr[currNum][3] != -1) {
+				dragareaArr[detailsArr[currNum][3]] = 0; // נסמן את איזור הגרירה כפנוי
+				placedAnswers--; // המונה יורד
+				permacont.getChildByName("checkBtn").visible = false; // הסרת כפתור בדיקה
+				detailsArr[currNum][3] = -1; // נסמן שהמסיח כבר לא על איזור גרירה
 			}
 		}
 		
@@ -14573,11 +14575,15 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 					// המסיח חוזר למיקומו המקורי
 					qcont.getChildByName("drag" + i).x = detailsArr[i][1];
 					qcont.getChildByName("drag" + i).y = detailsArr[i][2];
+					// אזור הגרירה חוזר למצב לא מודגש
+					qcont.getChildByName("area" + i).gotoAndStop(0);
 				}
 		
 				// הסרת כל המאזינים מהמסיחים
 				qcont.getChildByName("drag" + i).removeEventListener("pressmove", dragFunc);
 				qcont.getChildByName("drag" + i).removeEventListener("pressup", releaseDrag);
+				qcont.getChildByName("drag" + i).removeEventListener("click", clickFunc);
+		
 			}
 		
 			// העלמת כפתור בדיקה
@@ -14671,22 +14677,23 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 		
 				// הצגת מסך סיום
 				createDynamic(lib.endgame, 648.45, 356.65, "endgame", permacont); // מסך הסיום
-				
-				if (mins < 10){
-					mins = "0" + mins; 
+		
+				if (mins < 10) {
+					mins = "0" + mins;
 				}
 				if (secs < 10) {
 					secs = "0" + secs;
 				}
-				
-				var finalText = "ציון: " + parseInt(totalPoints) + "\n זמן: " + mins + ":" + secs + "\n מספר שגיאות: " + mistakes;"ציון: " + parseInt(totalPoints) + "\n זמן: " + mins + ":" + secs + "\n מספר שגיאות: " + mistakes;
+		
+				var finalText = "ציון: " + parseInt(totalPoints) + "\n זמן: " + mins + ":" + secs + "\n מספר שגיאות: " + mistakes;
+				"ציון: " + parseInt(totalPoints) + "\n זמן: " + mins + ":" + secs + "\n מספר שגיאות: " + mistakes;
 				var messageFinal = createText("black", "bold 50px Rubik", "endtext", finalText, permacont.getChildByName("endgame"));
 				messageFinal.textAlign = "center"; // מרכוז אופקי של הטקסט בתוך התיבה	
 				messageFinal.y = 25;
-				messageFinal.x= -30;
+				messageFinal.x = -30;
 				createDynamic(lib.newgame, 783.1, 560, "newgame", permacont); // יצירת כפתור משחק חדש
 				permacont.getChildByName("newgame").addEventListener("click", chooseNewGame);
-				createDynamic(lib.playAgain, 327.05 , 560, "playagain", permacont); // יצירת כפתור שחק שוב
+				createDynamic(lib.playAgain, 327.05, 560, "playagain", permacont); // יצירת כפתור שחק שוב
 				permacont.getChildByName("playagain").addEventListener("click", restartCurrGame);
 			}
 			// אם הלומד לא סיים, עוברים לשאלה הבאה
@@ -14777,6 +14784,7 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 				for (var i = 0; i < myGame[qNum].length - 1; i++) {
 					qcont.getChildByName("drag" + i).removeEventListener("pressmove", dragFunc);
 					qcont.getChildByName("drag" + i).removeEventListener("pressup", releaseDrag);
+					qcont.getChildByName("drag" + i).removeEventListener("click", clickFunc);
 				}
 		
 				// הסרת כל האלמנטים של שאלה - מסיחים, אזורי גרירה, בועת דיבור
@@ -14864,10 +14872,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/catsAndLadders_atlas_.png?1582209440090", id:"catsAndLadders_atlas_"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582209441403", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1582209441403", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/combobox.js?1582209441403", id:"an.ComboBox"}
+		{src:"images/catsAndLadders_atlas_.png?1582211158429", id:"catsAndLadders_atlas_"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582211159769", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1582211159769", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/combobox.js?1582211159769", id:"an.ComboBox"}
 	],
 	preloads: []
 };
