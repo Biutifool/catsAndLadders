@@ -14472,6 +14472,14 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 		
 			// גבול המסיח נהיה מודגש כדי להבחין אותו מהאחרים
 			evt.currentTarget.gotoAndStop(1);
+			
+			var currNum = evt.currentTarget.name.charAt(4)
+			if (detailsArr[currNum][3] != -1) {
+				dragareaArr[detailsArr[currNum][3]] = 0; // נסמן את איזור הגרירה כפנוי
+				placedAnswers--; // המונה יורד
+				permacont.getChildByName("checkBtn").visible = false; // הסרת כפתור בדיקה
+				detailsArr[currNum][3] = -1; // נסמן שהמסיח כבר לא על איזור גרירה
+			}
 		
 			for (i = 0; i < myGame[qNum].length - 1; i++) {
 				// שמירת איזור גרירה נוכחי
@@ -14872,10 +14880,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/catsAndLadders_atlas_.png?1582211158429", id:"catsAndLadders_atlas_"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582211159769", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1582211159769", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/combobox.js?1582211159769", id:"an.ComboBox"}
+		{src:"images/catsAndLadders_atlas_.png?1582212974839", id:"catsAndLadders_atlas_"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582212976132", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1582212976132", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/combobox.js?1582212976132", id:"an.ComboBox"}
 	],
 	preloads: []
 };
