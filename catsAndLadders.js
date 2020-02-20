@@ -12763,7 +12763,7 @@ p.nominalBounds = new cjs.Rectangle(-9.5,0,229.9,378.6);
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.endgame, new cjs.Rectangle(-607,-336.8,1214.2,676.5), null);
+}).prototype = getMCSymbolPrototype(lib.endgame, new cjs.Rectangle(-607,-336.8,1214.2,676.4000000000001), null);
 
 
 (lib.catAngry = function(mode,startPosition,loop) {
@@ -14662,6 +14662,7 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 		
 		// מעבר לשאלה הבאה
 		function nextFunc() {
+			// הצגת כפתור השהיה
 			permacont.getChildByName("pauseBtn").visible = true;
 		
 			// בכל מקרה עוצרים את הזמן ומאתחלים את הטיימר
@@ -14673,6 +14674,9 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 		
 			// בכל מקרה מסתירים את כפתור השאלה הבאה
 			permacont.getChildByName("nextBtn").visible = false;
+			
+			// הסתרת כפתור בדיקה (במקרה שהמשתמש מיקם את כל המסיחים אבל לא הספיק לבדוק)
+			permacont.getChildByName("checkBtn").visible = false;
 		
 			// בכל מקרה מסתירים את הסולם האמיתי
 			laddercont.visible = false;
@@ -14880,10 +14884,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/catsAndLadders_atlas_.png?1582212974839", id:"catsAndLadders_atlas_"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582212976132", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1582212976132", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/combobox.js?1582212976132", id:"an.ComboBox"}
+		{src:"images/catsAndLadders_atlas_.png?1582213603656", id:"catsAndLadders_atlas_"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582213604916", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1582213604916", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/combobox.js?1582213604916", id:"an.ComboBox"}
 	],
 	preloads: []
 };
