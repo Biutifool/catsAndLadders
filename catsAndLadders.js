@@ -11350,7 +11350,7 @@ p.nominalBounds = new cjs.Rectangle(-156.5,-29,312.9,57);
 	this.startbtn.name = "startbtn";
 	this.startbtn.setTransform(-45.25,10.5,0.7365,0.6049,0,0,0,52.5,17.1);
 
-	this.mycb = new lib.an_ComboBox({'id': 'mycb', 'label':'', 'items':'dummy, dummy, items, 2, label, 0, , , data, 0, , , 3, החלל החיצון, 1, מורשת ישראל, 2, , ', 'value':'0', 'disabled':false, 'visible':true, 'class':'ui-combobox'});
+	this.mycb = new lib.an_ComboBox({'id': 'mycb', 'label':'', 'items':'dummy, dummy, items, 2, label, 0, , , data, 0, , , 3, בחר נושא, 0, החלל החיצון, 1, מורשת ישראל, 2', 'value':'0', 'disabled':false, 'visible':true, 'class':'ui-combobox'});
 
 	this.mycb.name = "mycb";
 	this.mycb.setTransform(50,11,1,1,0,0,0,50,11);
@@ -14884,10 +14884,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/catsAndLadders_atlas_.png?1582220547521", id:"catsAndLadders_atlas_"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582220550045", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1582220550045", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/combobox.js?1582220550045", id:"an.ComboBox"}
+		{src:"images/catsAndLadders_atlas_.png?1582300884692", id:"catsAndLadders_atlas_"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582300886220", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1582300886220", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/combobox.js?1582300886220", id:"an.ComboBox"}
 	],
 	preloads: []
 };
