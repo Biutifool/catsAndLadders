@@ -1,11 +1,5 @@
-﻿html {
-    /*height: 100%;*/
-}
-
-body {
-    /*background:linear-gradient(to bottom, #77C5E6 69.5%, #789649 30.5%);*/
-    background-color: #77C5E6;
-    /*background: url('../images/bg.png') no-repeat center fixed;*/ 
+﻿body {
+    background-color: #BBE5F7;
     background-size: cover;
     font-family: 'Rubik', sans-serif;
 }
