@@ -13855,8 +13855,8 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 	this.initialize(mode,startPosition,loop,{});
 
 	// Layer_2
-	this.instance = new lib.fireman();
-	this.instance.setTransform(-348.95,74.1,0.6711,0.6711,0,0,0,107.3,189.3);
+	this.instance = new lib.fireman_normal();
+	this.instance.setTransform(-419.85,-52.95,0.2305,0.2305);
 
 	this.shape = new cjs.Shape();
 	this.shape.graphics.f("#006600").s().p("AhzB8QglgkAAhCIAAinQAAgGAEgEQAEgEAGAAICLAAQBPAAAjAiQAiAhAEBCIAAAZIAAAaQgEBCgkAiQgkAjhPAAQhMAAglgkgAhDAUQAAAfAQAPQARAPAfAAQAkAAAOgNQAPgOABggQABgFAAgSIgBgXQgBgegPgPQgQgPgfAAIhDAAg");
@@ -13927,7 +13927,7 @@ p.nominalBounds = new cjs.Rectangle(-10.5,-6.8,225.4,345.90000000000003);
 
 	this._renderFirstFrame();
 
-}).prototype = getMCSymbolPrototype(lib.comboBg, new cjs.Rectangle(-419.9,-242.7,1052.1999999999998,454.4), null);
+}).prototype = getMCSymbolPrototype(lib.comboBg, new cjs.Rectangle(-419.8,-242.7,1052.1,454.4), null);
 
 
 // stage content:
@@ -14884,10 +14884,10 @@ lib.properties = {
 	color: "#FFFFFF",
 	opacity: 1.00,
 	manifest: [
-		{src:"images/catsAndLadders_atlas_.png?1582300884692", id:"catsAndLadders_atlas_"},
-		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582300886220", id:"lib/jquery-3.4.1.min.js"},
-		{src:"components/sdk/anwidget.js?1582300886220", id:"sdk/anwidget.js"},
-		{src:"components/ui/src/combobox.js?1582300886220", id:"an.ComboBox"}
+		{src:"images/catsAndLadders_atlas_.png?1582359410618", id:"catsAndLadders_atlas_"},
+		{src:"https://code.jquery.com/jquery-3.4.1.min.js?1582359411935", id:"lib/jquery-3.4.1.min.js"},
+		{src:"components/sdk/anwidget.js?1582359411935", id:"sdk/anwidget.js"},
+		{src:"components/ui/src/combobox.js?1582359411935", id:"an.ComboBox"}
 	],
 	preloads: []
 };
